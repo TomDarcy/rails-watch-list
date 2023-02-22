@@ -3,14 +3,14 @@
     <h1>List : <%= @list.name.capitalize %></h1>
     <div class="button-header">
       <div class="bookmark-modal">
-        <button type="button" class="btn btn btn-flat" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn btn-flat header-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
           New Bookmark  </button>
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">New Bookmark</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
@@ -27,7 +27,7 @@
           </div>
         </div>
       </div>
-      <%= link_to "Delete", list_path(@list),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn btn-flat ms-2" %>
+      <%= link_to "Delete", list_path(@list),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn btn-flat ms-2 header-button" %>
     </div>
   </div>
   <div class="cards">

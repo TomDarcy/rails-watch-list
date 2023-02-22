@@ -3,9 +3,9 @@
   <div class="cards">
     <% @lists.each do |list| %>
       <%= link_to list_path(list) do %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%=list.bookmarks.first.movie.poster_url
+%>)">
           <%= list.name %>
-          <%= image_tag(bookmark.movie.poster_url, class: "card-img-top") %>
         </div>
       <% end %>
     <% end %>

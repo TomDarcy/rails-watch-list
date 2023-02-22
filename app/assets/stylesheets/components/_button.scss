@@ -2,11 +2,16 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #670BFF;
+  background: #670bff;
   transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
-  background: #4D04C4;
+  background: #4d04c4;
   color: white;
+}
+// make both header-button same size
+.header-button {
+  padding: 8px 24px;
+  width: 170px;
 }
