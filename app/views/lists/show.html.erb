@@ -1,6 +1,7 @@
 <div class="container">
   <div class="list-header">
-    <h1>List : <%= @list.name.capitalize %></h1>
+    <div class="title"><%= @list.name.capitalize %>
+    </div>
     <div class="button-header">
       <div class="bookmark-modal">
         <button type="button" class="btn btn btn-flat header-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -30,17 +31,27 @@
       <%= link_to "Delete", list_path(@list),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn btn-flat ms-2 header-button" %>
     </div>
   </div>
-  <div class="cards">
-    <% @bookmarks.each do |bookmark| %>
-      <div class="card-bookmark">
-        <%= image_tag(bookmark.movie.poster_url) %>
-        <div class="card-bookmark-infos">
-          <div>
-            <h2><%= bookmark.movie.title %></h2>
-            <p><%= bookmark.comment %></p>
+  <% if @bookmarks.length == 0 %>
+    <div class="empty">
+      <div class="empty-text">It's empty here <br>
+        Add a bookmark to start your list!
+      </div>
+      <div class="empty-image">      <%= image_tag("/assets/sitting-1.png") %>
+      </div>
+    </div>
+  <% else %>
+    <div class="cards">
+      <% @bookmarks.each do |bookmark| %>
+        <div class="card-bookmark">
+          <%= image_tag(bookmark.movie.poster_url) %>
+          <div class="card-bookmark-infos">
+            <div>
+              <h2><%= bookmark.movie.title %></h2>
+              <p><%= bookmark.comment %></p>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
