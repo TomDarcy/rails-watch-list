@@ -11,7 +11,7 @@ class BookmarksController < ApplicationController
     if @bookmark.save
       redirect_to @list, notice: 'Bookmark was successfully created.'
     else
-      render :new
+      redirect_to @list, notice: 'Bookmark was not created.'
     end
   end
 
