@@ -1,0 +1,7 @@
+<div class="container-home">
+  <%= video_tag("background-video.mp4",autoplay: :autoplay, loop: :loop,muted: :muted, class: "splash", style: "position:absolute; top:0; left:0; width:auto; height:100%; z-index:-1;") %>
+  <div class="typewriter" style="position: relative; z-index:1;">
+    <h1 style="text-align: center;">WELCOME TO YOUR MOVIE LISTS</h1>
+  </div>
+  <%= link_to "Enter", lists_path, class: "btn btn-flat", style: "position:relative; z-index:1;" %>
+</div>
