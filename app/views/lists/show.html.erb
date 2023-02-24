@@ -27,7 +27,9 @@
             </div>
           </div>
         </div>
-        <!-- Modal for deleting list -->
+      </div>
+      <!-- Modal for deleting list -->
+      <div class="delete-modal">
         <button type="button" class="btn btn btn-flat header-button" data-bs-toggle="modal" data-bs-target="#deleteModal">
           Delete List  </button>
         <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -43,8 +45,7 @@
                 Are you sure you want to delete this list?
               </div>
               <div class="modal-footer center">
-                <button type="button" class="btn btn btn-flat ms-2
- close" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn btn-flat ms-2 close" data-bs-dismiss="modal">Close</button>
                 <%= link_to "Delete", list_path(@list),data: {turbo_method: :delete}, class: "btn btn btn-flat ms-2" %>
               </div>
             </div>
@@ -55,28 +56,34 @@
       </div>
     </div>
   </div>
-  <% if @bookmarks.length == 0 %>
-    <div class="empty">
-      <div class="empty-text">It's empty here <br>
-        Add a bookmark to start your list!
+  <div class="bookmark-container">
+    <% if @bookmarks.length == 0 %>
+      <div class="empty">
+        <div class="empty-text">It's empty here <br>
+          Add a bookmark to start your list!
+        </div>
+        <div class="empty-image">      <%= image_tag("sitting-1.png") %>
+        </div>
       </div>
-      <div class="empty-image">      <%= image_tag("sitting-1.png") %>
-      </div>
-    </div>
-  <% else %>
-    <div class="cards">
-      <% @bookmarks.each do |bookmark| %>
-        <div class="card-bookmark">
-          <%= image_tag(bookmark.movie.poster_url) %>
-          <div class="card-bookmark-infos">
-            <div>
-              <h2><%= bookmark.movie.title %></h2>
-              <p><%= bookmark.comment %></p>
+    <% else %>
+      <div class="cards">
+        <% @bookmarks.each do |bookmark| %>
+          <div class="card-bookmark">
+            <div class="card-image-wrapper">
+              <%= image_tag(bookmark.movie.poster_url) %>
+              <div class="card-text-overlay">
+                <%=bookmark.movie.overview.truncate(180) %>
+              </div>
+            </div>
+            <div class="card-bookmark-infos">
+              <div>
+                <h2><%= bookmark.movie.title %></h2>
+                <p><%= bookmark.comment %></p>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
 </div>
