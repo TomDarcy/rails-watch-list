@@ -37,9 +37,11 @@ a {
 
 .card-bookmark {
   overflow: hidden;
-  background: white;
+  background: rgba(44, 5, 107, 0.6);
+  border-radius: 5%;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   transition: all 0.5s ease-in-out;
+  color: white;
 
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);

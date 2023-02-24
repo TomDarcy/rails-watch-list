@@ -1,6 +1,7 @@
 <%= simple_form_for(@list) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit "Add List", class: "btn btn-flat
-" %>
+  <%= f.input :name, :label_html => { :class => "white" }
+ %>
+  <%= f.input :photo, as: :file, :label_html => { :class => "white" }
+ %>
+  <%= f.submit "Add List", class: "btn btn-flat" %>
 <% end %>

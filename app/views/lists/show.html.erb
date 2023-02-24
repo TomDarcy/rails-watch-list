@@ -11,17 +11,19 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">New Bookmark</h1>
+                <h1 class="modal-title fs-5 white" id="exampleModalLabel">New Bookmark</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
                 <%= simple_form_for [@list, @bookmark] do |f| %>
-                  <%= f.input :movie_id, collection: Movie.all.map { |m| [m.title, m.id] }, label: "Movie" %>
-                  <%= f.input :comment, label: "What did you think of the film?" %>
+                  <%= f.input :movie_id, collection: Movie.all.map { |m| [m.title, m.id] }, label: "Movie", :label_html => { :class => "white" }
+ %>
+                  <%= f.input :comment, label: "What did you think of the film?", :label_html => { :class => "white" }
+ %>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <%= f.submit "Add Bookmark", class: "btn btn-primary" %>
+                  <button type="button" class="btn btn-flat" data-bs-dismiss="modal">Close</button>
+                  <%= f.submit "Add Bookmark", class: "btn btn-flat" %>
                 <% end %>
               </div>
             </div>
@@ -36,11 +38,11 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="deleteModalLabel">Delete List</h1>
+                <h1 class="modal-title fs-5 white" id="deleteModalLabel">Delete List</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body text-center">
-                <i class="fa-sharp fa-solid fa-trash bin"></i>
+              <div class="modal-body text-center white">
+                <i class="fa-sharp fa-solid fa-trash bin white"></i>
                 <br>
                 Are you sure you want to delete this list?
               </div>
